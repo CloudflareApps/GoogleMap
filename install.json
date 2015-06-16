@@ -1,0 +1,118 @@
+{
+  "options": {
+    "properties": {
+      "container": {
+        "title": "Place to insert map",
+        "type": "object",
+        "format": "element"
+      },
+      "location": {
+        "title": "Map location",
+        "type": "object",
+        "properties": {
+          "title": {
+            "title": "Location name",
+            "type": "string",
+            "default": "Eager"
+          },
+          "address": {
+            "title": "Address (Street, City, State and Zip)",
+            "type": "string",
+            "default": "195 Binney St. #2319, Cambridge, MA 02142"
+          },
+          "showMarker": {
+            "title": "Show location marker",
+            "type": "boolean",
+            "default": true
+          }
+        }
+      },
+      "aspectRatio": {
+        "title": "Layout",
+        "type": "string",
+        "enum": [
+          "50",
+          "100",
+          "200"
+        ],
+        "enumNames": {
+          "50": "Horizontal",
+          "100": "Square",
+          "200": "Vertical"
+        },
+        "format": "radios",
+        "default": "50"
+      },
+      "mapTypeId": {
+        "title": "Map Type",
+        "type": "string",
+        "enum": [
+          "ROADMAP",
+          "SATELLITE",
+          "HYBRID"
+        ],
+        "enumNames": {
+          "ROADMAP": "Road map",
+          "SATELLITE": "Satellite",
+          "HYBRID": "Satellite with street names"
+        },
+        "format": "radios",
+        "default": "ROADMAP"
+      },
+      "zoom": {
+        "title": "Zoom",
+        "type": "string",
+        "enum": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21"
+        ],
+        "enumNames": {
+          "0": "Fully Zoomed out",
+          "1": "4000 km",
+          "2": "2000 km (world)",
+          "3": "1000 km",
+          "4": "400 km (continent)",
+          "5": "200 km",
+          "6": "100 km (country)",
+          "7": "50 km",
+          "8": "30 km",
+          "9": "15 km (area)",
+          "10": "8 km",
+          "11": "4 km",
+          "12": "2 km (city)",
+          "13": "1 km",
+          "14": "400 m (district)",
+          "15": "200 m",
+          "16": "100 m",
+          "17": "50 m (street)",
+          "18": "20 m",
+          "19": "10 m",
+          "20": "5 m - (house)",
+          "21": "2.5 m"
+        },
+        "format": "radios",
+        "default": "13"
+      }
+    }
+  }
+}

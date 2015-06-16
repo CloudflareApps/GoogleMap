@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="head.js"></script>
+  </head>
+  <body>
+    <div></div>
+    <script>
+      EagerGoogleMap.init(document.querySelector('div'), {
+        "container": {
+          "selector": "body",
+          "method": "append"
+        },
+        "location": {
+          "title": "Eager",
+          "address": "195 Binney St. #2319, Cambridge, MA 02142",
+          "showMarker": true
+        },
+        "aspectRatio": "50",
+        "mapTypeId": "ROADMAP",
+        "zoom": "13"
+    });
+    </script>
+  </body>
+</html>
