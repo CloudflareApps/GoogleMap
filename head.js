@@ -25,7 +25,7 @@
         return;
       }
 
-      var center, mapOptions, map, marker, pluck, infoWindow;
+      var center, mapOptions, map, setMapScrollWheelOption, marker, pluck, infoWindow;
 
       center = results[0].geometry.location;
 
@@ -37,10 +37,28 @@
         zoomControl: false,
         scaleControl: false,
         disableDefaultUI: true,
-        scrollwheel: true
+        scrollwheel: false
       };
 
       map = new google.maps.Map(mapEl, mapOptions);
+
+      setMapScrollWheelOption = function (value) {
+        map.setOptions({ scrollwheel: value });
+      };
+
+      google.maps.event.addListener(map, 'mousedown', function(){
+        setMapScrollWheelOption(true);
+      });
+
+      google.maps.event.addDomListener(window, 'scroll', function(){
+        setMapScrollWheelOption(false);
+      });
+
+      google.maps.event.addDomListener(document.body, 'click', function(){
+        if (!mapEl.contains(event.target)) {
+          setMapScrollWheelOption(false);
+        }
+      });
 
       google.maps.event.addDomListener(window, 'resize', function(){
         map.setCenter(center);
