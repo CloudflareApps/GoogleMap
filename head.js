@@ -1,7 +1,10 @@
 (function(){
   if (!document.addEventListener) return;
 
-  var installOptions, ready, callbackFunctionName, loadScript, mapEl;
+  var installOptions, container, ready, callbackFunctionName, loadScript, mapEl;
+
+  installOptions = INSTALL_OPTIONS;
+  container = Eager.createElement(installOptions.container);
 
   var ready = function(fn) {
     if (document.readyState != 'loading'){
@@ -94,36 +97,30 @@
     document.body.appendChild(script);
   }
 
-  window.EagerGoogleMap = {
-    init: function(container, options) {
-      installOptions = options;
+  ready(function(){
+    var mapContainer = document.createElement('div');
+    mapContainer.className = 'eager-google-map-container';
+    mapContainer.innerHTML = '' +
+      '<style>' +
+        '.eager-google-map-container {' +
+          'position: relative;' +
+          'height: 0;' +
+          'padding-bottom: ' + installOptions.aspectRatio + '%;' +
+        '}' +
+        '.eager-google-map {' +
+          'position: absolute;' +
+          'top: 0;' +
+          'height: 100%;' +
+          'left: 0;' +
+          'width: 100%;' +
+          'background: #e5e3df;' +
+        '}' +
+      '</style>' +
+      '<div class="eager-google-map"><div></div></div>' +
+    '';
+    mapEl = mapContainer.querySelector('.eager-google-map');
+    container.appendChild(mapContainer);
 
-      ready(function(){
-        var mapContainer = document.createElement('div');
-        mapContainer.className = 'eager-google-map-container';
-        mapContainer.innerHTML = '' +
-          '<style>' +
-            '.eager-google-map-container {' +
-              'position: relative;' +
-              'height: 0;' +
-              'padding-bottom: ' + installOptions.aspectRatio + '%;' +
-            '}' +
-            '.eager-google-map {' +
-              'position: absolute;' +
-              'top: 0;' +
-              'height: 100%;' +
-              'left: 0;' +
-              'width: 100%;' +
-              'background: #e5e3df;' +
-            '}' +
-          '</style>' +
-          '<div class="eager-google-map"><div></div></div>' +
-        '';
-        mapEl = mapContainer.querySelector('.eager-google-map');
-        container.appendChild(mapContainer);
-
-        loadScript();
-      });
-    }
-  };
+    loadScript();
+  });
 })();
