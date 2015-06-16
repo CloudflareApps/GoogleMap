@@ -4,6 +4,10 @@
       {
         "type": "script",
         "src": "./head.js"
+      },
+      {
+        "type": "script",
+        "contents": "EagerGoogleMap.init(Eager.createElement(INSTALL_OPTIONS.container), INSTALL_OPTIONS);"
       }
     ]
   },
