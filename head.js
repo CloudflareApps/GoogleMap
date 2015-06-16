@@ -1,10 +1,9 @@
 (function(){
   if (!document.addEventListener) return;
 
-  var installOptions, container, ready, callbackFunctionName, loadScript, mapEl;
+  var installOptions, ready, callbackFunctionName, loadScript, mapEl;
 
   installOptions = INSTALL_OPTIONS;
-  container = Eager.createElement(installOptions.container);
 
   var ready = function(fn) {
     if (document.readyState != 'loading'){
@@ -98,7 +97,10 @@
   }
 
   ready(function(){
-    var mapContainer = document.createElement('div');
+    var appContainer, mapContainer;
+
+    appContainer = Eager.createElement(installOptions.container);
+    mapContainer = document.createElement('div');
     mapContainer.className = 'eager-google-map-container';
     mapContainer.innerHTML = '' +
       '<style>' +
@@ -119,7 +121,7 @@
       '<div class="eager-google-map"><div></div></div>' +
     '';
     mapEl = mapContainer.querySelector('.eager-google-map');
-    container.appendChild(mapContainer);
+    appContainer.appendChild(mapContainer);
 
     loadScript();
   });
