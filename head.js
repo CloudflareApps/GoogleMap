@@ -5,7 +5,7 @@
 
   installOptions = INSTALL_OPTIONS;
 
-  var ready = function(fn) {
+  ready = function(fn) {
     if (document.readyState != 'loading'){
       fn();
     } else {
@@ -13,7 +13,7 @@
     }
   };
 
-  var callbackFunctionName = 'EagerGoogleMapAPICallback';
+  callbackFunctionName = 'EagerGoogleMapAPICallback';
 
   window[callbackFunctionName] = function() {
     var geocoder = new google.maps.Geocoder;
@@ -25,7 +25,7 @@
         return;
       }
 
-      var center, mapOptions, marker, pluck, infoWindow;
+      var center, mapOptions, map, marker, pluck, infoWindow;
 
       center = results[0].geometry.location;
 
