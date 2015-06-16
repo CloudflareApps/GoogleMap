@@ -32,22 +32,18 @@
       mapOptions = {
         zoom: parseInt(installOptions.zoom, 10),
         center: center,
+        mapTypeId: google.maps.MapTypeId[installOptions.mapTypeId],
         panControl: false,
         zoomControl: false,
         scaleControl: false,
         disableDefaultUI: true,
-        mapTypeId: google.maps.MapTypeId[installOptions.mapTypeId],
-        scrollwheel: true // TODO - false?
+        scrollwheel: true
       };
 
       map = new google.maps.Map(mapEl, mapOptions);
 
       google.maps.event.addDomListener(window, 'resize', function(){
         map.setCenter(center);
-      });
-
-      google.maps.event.addDomListener(map, 'idle', function(){
-        map.panTo(center);
       });
 
       if (installOptions.location.showMarker) {
