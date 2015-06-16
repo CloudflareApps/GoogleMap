@@ -1,26 +1,39 @@
 {
+  "resources": {
+    "head": [
+      {
+        "type": "script",
+        "src": "./head.js"
+      }
+    ]
+  },
   "options": {
     "properties": {
       "container": {
+        "order": 1,
         "title": "Place to insert map",
         "type": "object",
         "format": "element"
       },
       "location": {
+        "order": 2,
         "title": "Map location",
         "type": "object",
         "properties": {
           "title": {
+            "order": 1,
             "title": "Location name",
             "type": "string",
             "default": "Eager"
           },
           "address": {
+            "order": 2,
             "title": "Address (Street, City, State and Zip)",
             "type": "string",
             "default": "195 Binney St. #2319, Cambridge, MA 02142"
           },
           "showMarker": {
+            "order": 3,
             "title": "Show location marker",
             "type": "boolean",
             "default": true
@@ -28,6 +41,7 @@
         }
       },
       "aspectRatio": {
+        "order": 3,
         "title": "Layout",
         "type": "string",
         "enum": [
@@ -44,6 +58,7 @@
         "default": "50"
       },
       "mapTypeId": {
+        "order": 4,
         "title": "Map Type",
         "type": "string",
         "enum": [
@@ -60,6 +75,7 @@
         "default": "ROADMAP"
       },
       "zoom": {
+        "order": 5,
         "title": "Zoom",
         "type": "string",
         "enum": [
