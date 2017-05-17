@@ -3,7 +3,7 @@
     "head": [
       {
         "type": "script",
-        "src": "./head.js"
+        "src": "./build/app.js"
       }
     ]
   },
@@ -24,13 +24,13 @@
             "order": 1,
             "title": "Location name",
             "type": "string",
-            "default": "Eager"
+            "default": "Cloudflare Inc."
           },
           "address": {
             "order": 2,
             "title": "Address (Street, City, State and Zip)",
             "type": "string",
-            "default": "195 Binney St. #2319, Cambridge, MA 02142"
+            "default": "101 Townsend St, San Francisco, CA 94107"
           },
           "showMarker": {
             "order": 3,
