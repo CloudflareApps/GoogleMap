@@ -7,6 +7,30 @@
       }
     ]
   },
+  "preview": {
+    "handlers": [
+      {
+        "options": ["container"],
+        "execute": "INSTALL_SCOPE.setAppContainer(INSTALL_OPTIONS)"
+      },
+      {
+        "options": ["zoom"],
+        "execute": "INSTALL_SCOPE.setMapZoom(INSTALL_OPTIONS)"
+      },
+      {
+        "options": ["location"],
+        "execute": "INSTALL_SCOPE.setMapLocation(INSTALL_OPTIONS)"
+      },
+      {
+        "options": ["aspectRatio"],
+        "execute": "INSTALL_SCOPE.setMapAspectRatio(INSTALL_OPTIONS)"
+      },
+      {
+        "options": ["theme"],
+        "execute": "INSTALL_SCOPE.setMapTheme(INSTALL_OPTIONS)"
+      }
+    ]
+  },
   "options": {
     "properties": {
       "container": {
@@ -49,23 +73,23 @@
           "roadmap",
           "satellite",
           "hybrid",
+          "light",
+          "simpleBlackWhite",
           "simpleGreen",
           "darkGreen",
-          "light",
           "midnight",
-          "coolBlue",
-          "simpleBlackWhite"
+          "coolBlue"
         ],
         "enumNames": {
-          "roadmap": "Road map",
+          "roadmap": "Roads",
           "satellite": "Satellite",
           "hybrid": "Satellite with street names",
-          "light": "Light",
+          "light": "Minimal Light",
+          "simpleBlackWhite": "High Contrast",
           "simpleGreen": "Light Green",
           "darkGreen": "Dark Green",
           "coolBlue": "Light Blue",
-          "midnight": "Dark Blue",
-          "simpleBlackWhite": "Black & White"
+          "midnight": "Dark Blue"
         }
       },
       "aspectRatio": {
