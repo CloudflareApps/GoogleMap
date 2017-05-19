@@ -40,8 +40,36 @@
           }
         }
       },
-      "aspectRatio": {
+      "theme": {
         "order": 3,
+        "title": "Theme",
+        "type": "string",
+        "default": "roadmap",
+        "enum": [
+          "roadmap",
+          "satellite",
+          "hybrid",
+          "simpleGreen",
+          "darkGreen",
+          "light",
+          "midnight",
+          "coolBlue",
+          "simpleBlackWhite"
+        ],
+        "enumNames": {
+          "roadmap": "Road map",
+          "satellite": "Satellite",
+          "hybrid": "Satellite with street names",
+          "light": "Light",
+          "simpleGreen": "Light Green",
+          "darkGreen": "Dark Green",
+          "coolBlue": "Light Blue",
+          "midnight": "Dark Blue",
+          "simpleBlackWhite": "Black & White"
+        }
+      },
+      "aspectRatio": {
+        "order": 4,
         "title": "Layout",
         "type": "string",
         "enum": [
@@ -57,25 +85,8 @@
         "format": "radios",
         "default": "50"
       },
-      "mapTypeId": {
-        "order": 4,
-        "title": "Map Type",
-        "type": "string",
-        "enum": [
-          "ROADMAP",
-          "SATELLITE",
-          "HYBRID"
-        ],
-        "enumNames": {
-          "ROADMAP": "Road map",
-          "SATELLITE": "Satellite",
-          "HYBRID": "Satellite with street names"
-        },
-        "format": "radios",
-        "default": "ROADMAP"
-      },
       "zoom": {
-        "order": 5,
+        "order": 6,
         "title": "Zoom",
         "type": "string",
         "enum": [

@@ -1,8 +1,11 @@
+import * as mapStyles from './map-styles'
+
 (function () {
   if (!document.addEventListener) return
 
   const CALLBACK_FUNCTION_NAME = 'EagerGoogleMapAPICallback'
   const API_KEY = 'AIzaSyB1G6nET3SgFcsP5Gd42hJVJ3rKGIl7zDo'
+  const defaultStyles = ['roadmap', 'satellite', 'hybrid']
   const options = INSTALL_OPTIONS
   let mapEl
 
@@ -14,13 +17,14 @@
       if (status !== maps.GeocoderStatus.OK) return
 
       const [result] = results
-
       const center = result.geometry.location
-
       const mapOptions = {
         zoom: parseInt(options.zoom, 10),
         center,
-        mapTypeId: maps.MapTypeId[options.mapTypeId],
+        mapTypeControlOptions: {
+          mapTypeIds: defaultStyles
+        },
+        mapTypeId: options.theme,
         panControl: false,
         zoomControl: false,
         scaleControl: false,
@@ -29,6 +33,10 @@
       }
 
       const map = new maps.Map(mapEl, mapOptions)
+
+      if (defaultStyles.indexOf(options.theme) === -1) {
+        map.mapTypes.set(options.theme, new maps.StyledMapType(mapStyles[options.theme], {}))
+      }
 
       function setMapScrollWheelOption (value) {
         map.setOptions({scrollwheel: value})
@@ -80,9 +88,7 @@
           `
         })
 
-        maps.event.addListener(marker, 'click', () => {
-          infoWindow.open(map, marker)
-        })
+        maps.event.addListener(marker, 'click', () => infoWindow.open(map, marker))
       }
     })
   }
