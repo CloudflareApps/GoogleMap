@@ -88,57 +88,144 @@
       "zoom": {
         "order": 6,
         "title": "Zoom",
-        "type": "string",
-        "enum": [
-          "0",
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12",
-          "13",
-          "14",
-          "15",
-          "16",
-          "17",
-          "18",
-          "19",
-          "20",
-          "21"
-        ],
-        "enumNames": {
-          "0": "Entire globe",
-          "1": "4000km",
-          "2": "2000km",
-          "3": "1000km",
-          "4": "400km (Continent)",
-          "5": "200km",
-          "6": "100km (Country)",
-          "7": "50km",
-          "8": "30km",
-          "9": "15km",
-          "10": "8km",
-          "11": "4km",
-          "12": "2km (City)",
-          "13": "1km",
-          "14": "400m (District)",
-          "15": "200m",
-          "16": "100m",
-          "17": "50m (Street)",
-          "18": "20m",
-          "19": "10m",
-          "20": "5m (House)",
-          "21": "2.5m"
-        },
-        "format": "radios",
+        "type": "number",
+        "format": "slider",
+        "minimum": 0,
+        "maximum": 21,
+        "step": 1,
         "default": "13"
+      },
+      "zoom0": {
+        "order": 7,
+        "showIf": {"zoom": 0},
+        "type": "help",
+        "helpvalue": "Entire globe"
+      },
+      "zoom1": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 1},
+        "helpvalue": "4000km"
+      },
+      "zoom2": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 2},
+        "helpvalue": "2000km"
+      },
+      "zoom3": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 3},
+        "helpvalue": "1000km"
+      },
+      "zoom4": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 4},
+        "helpvalue": "400km (Continent)"
+      },
+      "zoom5": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 5},
+        "helpvalue": "200km"
+      },
+      "zoom6": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 6},
+        "helpvalue": "100km (Country)"
+      },
+      "zoom7": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 7},
+        "helpvalue": "50km"
+      },
+      "zoom8": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 8},
+        "helpvalue": "30km"
+      },
+      "zoom9": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 9},
+        "helpvalue": "15km"
+      },
+      "zoom10": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 10},
+        "helpvalue": "8km"
+      },
+      "zoom11": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 11},
+        "helpvalue": "4km"
+      },
+      "zoom12": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 12},
+        "helpvalue": "2km (City)"
+      },
+      "zoom13": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 13},
+        "helpvalue": "1km"
+      },
+      "zoom14": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 14},
+        "helpvalue": "400m (District)"
+      },
+      "zoom15": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 15},
+        "helpvalue": "200m"
+      },
+      "zoom16": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 16},
+        "helpvalue": "100m"
+      },
+      "zoom17": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 17},
+        "helpvalue": "50m (Street)"
+      },
+      "zoom18": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 18},
+        "helpvalue": "20m"
+      },
+      "zoom19": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 19},
+        "helpvalue": "10m"
+      },
+      "zoom20": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 20},
+        "helpvalue": "5m (House)"
+      },
+      "zoom21": {
+        "order": 7,
+        "type": "help",
+        "showIf": {"zoom": 21},
+        "helpvalue": "2.5m"
       }
     }
   }
