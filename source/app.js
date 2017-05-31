@@ -17,6 +17,7 @@ import createInfoWindowConfig from './create-info-window-config'
   let center
   let marker
   let infoWindow
+  let openInfoWindow
 
   window[CALLBACK_FUNCTION_NAME] = function cloudflareGoogleMapLoad () {
     maps = window.google.maps
@@ -28,17 +29,21 @@ import createInfoWindowConfig from './create-info-window-config'
       const [result] = results
       center = result.geometry.location
       const mapOptions = {
-        zoom: parseInt(options.zoom, 10),
         center,
+        disableDefaultUI: true,
+        disableDoubleClickZoom: true,
+        draggable: false,
+        mapTypeControl: false,
+        mapTypeId: options.theme,
         mapTypeControlOptions: {
           mapTypeIds: defaultStyles
         },
-        mapTypeId: options.theme,
+        navigationControl: false,
         panControl: false,
-        zoomControl: false,
         scaleControl: false,
-        disableDefaultUI: true,
-        scrollwheel: false
+        scrollwheel: false,
+        zoom: parseInt(options.zoom, 10),
+        zoomControl: false
       }
 
       map = new maps.Map(mapEl, mapOptions)
@@ -71,10 +76,13 @@ import createInfoWindowConfig from './create-info-window-config'
       })
 
       infoWindow = new maps.InfoWindow(createInfoWindowConfig(result, options))
+      openInfoWindow = () => infoWindow.open(map, marker)
 
-      maps.event.addListener(marker, 'click', () => infoWindow.open(map, marker))
+      maps.event.addListener(marker, 'click', openInfoWindow)
 
       marker.setVisible(options.location.showMarker)
+
+      if (options.location.showMarker && options.location.showLocation) openInfoWindow()
     })
   }
 
@@ -147,7 +155,12 @@ import createInfoWindowConfig from './create-info-window-config'
         marker.setVisible(options.location.showMarker)
 
         infoWindow.setContent(createInfoWindowConfig(result, options).content)
-        if (!options.location.showMarker) infoWindow.close()
+
+        if (!options.location.showMarker || !options.location.showLocation) {
+          infoWindow.close()
+        } else {
+          openInfoWindow()
+        }
       })
     },
     setMapZoom (nextOptions) {

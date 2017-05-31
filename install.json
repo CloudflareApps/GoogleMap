@@ -37,7 +37,11 @@
         "order": 1,
         "title": "Place to insert map",
         "type": "object",
-        "format": "element"
+        "format": "element",
+        "default": {
+          "selector": "body",
+          "method": "prepend"
+        }
       },
       "location": {
         "order": 2,
@@ -61,6 +65,13 @@
             "title": "Show location marker",
             "type": "boolean",
             "default": true
+          },
+          "showLocation": {
+            "showIf": "location.showMarker",
+            "order": 4,
+            "title": "Show location address",
+            "default": false,
+            "type": "boolean"
           }
         }
       },
